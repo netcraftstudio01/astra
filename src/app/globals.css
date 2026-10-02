@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+.text-gray-300,
+.text-gray-400,
+.text-gray-500,
+.text-gray-600,
+.text-gray-700,
+.text-gray-100,
+.text-gray-200 {
+  transition: color 0.2s ease;
+}
+
+.text-gray-300 { color: #475569 !important; }
+.text-gray-400 { color: #64748b !important; }
+.text-gray-500 { color: #475569 !important; }
+.text-gray-600 { color: #334155 !important; }
+.text-gray-700 { color: #1f2937 !important; }
+.text-gray-100 { color: #1f2937 !important; }
+.text-gray-200 { color: #334155 !important; }
+
+/* Custom components */
+:root {
+  --soft-gold: #ffd700;
+}
+
+.text-gold {
+  color: var(--soft-gold);
+}
+
+.text-\[\#8a5e00\],
+.text-\[\#a67400\],
+.text-\[\#A67400\] {
+  color: var(--soft-gold) !important;
+}
+
+.hover\:text-\[\#8a5e00\]:hover,
+.hover\:text-\[\#724d00\]:hover {
+  color: var(--soft-gold) !important;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffd700 0%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.08);
+}
+
+.service-card {
+  @apply p-6 rounded-lg card-glass hover:shadow-2xl hover:shadow-gold/40 transition-all duration-300 transform hover:-translate-y-2;
+}
+
+.btn-gold {
+  @apply px-6 py-3 bg-gold text-white font-semibold rounded-lg hover:bg-[#d4a900] transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-outline {
+  @apply px-6 py-3 border-2 border-gold text-gold font-semibold rounded-lg hover:bg-gold hover:text-white transition-all duration-300;
+}
+
+.astrology-clock-section {
+  padding: 5rem 0;
+  background: #f7f1e5;
+}
+
+.astrology-clock-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+  align-items: center;
+  gap: 3rem;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  overflow: hidden;
+  border: 1px solid rgba(166, 116, 0, 0.35);
+  border-radius: 1rem;
+  background: radial-gradient(circle at 75% 45%, rgba(254, 189, 20, 0.2), transparent 35%), #20192a;
+  box-shadow: 0 20px 60px rgba(48, 32, 17, 0.2);
+}
+
+.astrology-clock-copy { color: #fff8e5; }
+.astrology-clock-eyebrow { margin-bottom: .75rem; color: #f6c94e; font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.astrology-clock-copy h2 { margin-bottom: .75rem; color: #fff8e5; font-family: Georgia, serif; font-size: clamp(2rem, 5vw, 3.75rem); line-height: 1.05; }
+.astrology-clock-date { color: #f6c94e; font-size: 1rem; }
+.astrology-clock-face-wrap { position: relative; width: min(100%, 440px); margin: auto; }
+.astrology-clock-face { display: block; width: 100%; height: auto; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35)); }
+.astrology-clock-time { position: absolute; right: 0; bottom: 8%; left: 0; z-index: 1; color: #fff8e5; font-family: Georgia, serif; font-size: clamp(.9rem, 3vw, 1.4rem); font-weight: 700; text-align: center; letter-spacing: .05em; text-shadow: 0 2px 8px rgba(0, 0, 0, .8); }
+.clock-outer-ring { fill: #292136; stroke: #f6c94e; stroke-width: .8; }
+.clock-zodiac-ring { fill: #332944; stroke: #c79a30; stroke-width: .3; }
+.clock-inner-ring { fill: #191522; stroke: #c79a30; stroke-width: .35; }
+.clock-tick, .clock-hour-tick { stroke: #f6c94e; stroke-width: .7; }
+.clock-hour-tick { stroke-width: .4; opacity: .7; }
+.clock-zodiac-symbol { fill: #f6c94e; font-size: 4px; }
+.clock-planet { stroke: #fff8e5; stroke-width: .45; }
+.clock-planet-symbol { fill: #20192a; font-size: 2.8px; }
+.clock-hour-hand, .clock-minute-hand { stroke: #fff8e5; stroke-linecap: round; stroke-width: 1.2; }
+.clock-minute-hand { stroke: #f6c94e; stroke-width: .8; }
+.clock-second-hand { stroke: #e87655; stroke-linecap: round; stroke-width: .35; }
+.clock-center { fill: #f6c94e; stroke: #fff8e5; stroke-width: .5; }
+
+@media (max-width: 767px) {
+  .astrology-clock-section { padding: 3.5rem 0; }
+  .astrology-clock-panel { grid-template-columns: 1fr; gap: 2rem; }
+  .astrology-clock-copy { text-align: center; }
+}
+
+.whatsapp-float {
+  @apply fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-green-900/30 transition-transform duration-300 hover:scale-110 hover:bg-[#1ebe5d] focus:outline-none focus:ring-4 focus:ring-[#25D366]/40;
+  animation: whatsapp-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 10px 25px rgba(20, 83, 45, 0.3), 0 0 0 0 rgba(37, 211, 102, 0.35); }
+  50% { box-shadow: 0 10px 25px rgba(20, 83, 45, 0.3), 0 0 0 8px rgba(37, 211, 102, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float {
+    animation: none;
+  }
+}
